@@ -1,0 +1,3 @@
+1. The EC2 instance "Web Service Instance - C3" listens on all ports and are globally accessible.  
+2. Elastic IP address has been attahced to the instane "Web Service Instance - C3" that allows the instance to be directly accessed from any where.
+3. InstanceRolePolicy-C3 has the access to all the resources that is any one who has access to the intance for web app can access the secret recipe bucket.
