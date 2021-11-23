@@ -1,3 +1,8 @@
-1. The EC2 instance "Web Service Instance - C3" listens on all ports and are globally accessible.  
-2. Elastic IP address has been attahced to the instane "Web Service Instance - C3" that allows the instance to be directly accessed from any where.
-3. InstanceRolePolicy-C3 has the access to all the resources that is any one who has access to the intance for web app can access the secret recipe bucket.
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+
+# Poor practice 1
+ The EC2 instance "Web Service Instance - C3" listens on all ports and are globally accessible.  Moreover, an Elastic IP address has been attahced to the instane "Web Service Instance - C3". As a result, the instance can be directly accessed from any where.
+
+# Poor practice 2
+InstanceRolePolicy-C3 has the access to all the resources. That allows one, who has access to the web app instance, to be able to access the secret recipe bucket.
