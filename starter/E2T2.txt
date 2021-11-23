@@ -1,3 +1,7 @@
-Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+# Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+The vulnerabilities in the instance for the web app is related to the properties of the SecurityGroupIngress for the WebAppSG in line # 54 ~ 55, and the AppEIP in line# 113 ~ 116 of the configuation file c3-app.yml
+The vulnerabilities in the S3 bucket is related to the Rsource of the InstanceRolePolicy-C3 at line # 36 of the configuation file c3-app.yml. 
 
-Bonus - provide recommendations on how to remediate the vulnerabilities.
+# Bonus - provide recommendations on how to remediate the vulnerabilities.
+Lines 54 ~ 55, and lines 113 ~ 116 should be removed to avoid exposing all the ports and attaching an Elastic IP.
+In line # 36, Resource: '*' should be replaced with more specific resource for free recipe.  
