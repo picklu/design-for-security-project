@@ -1,3 +1,5 @@
 # Describe GuardDuty findings that were detected related to the brute force attack
+GuardDuty found two types of brute force attack to and from the attack instance. The attack instance used port 35008 to performn the brute force attack to gain unauthorized access to the web app instance by guessing the SSH password.
 
 # Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information.
+Amazon GuardDuty is a threat detection service that continuously monitors AWS accounts and workloads for malicious activity and delivers detailed security findings for visibility and remediation. GuardDuty continuously annlyze CloudTrail Mgmt events, CloudTrail S3 events, VPC flow logs, and DNS logs. In this case, GuardDuty might have detected suspicious activities by analyzing VPC flow logs.
