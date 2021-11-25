@@ -1,5 +1,6 @@
-
-
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+The web app instance is configured to allow users to log in with root credentials over SSH, without having to use a command authenticated by a public key. To prevent this, the sshd_config file can be edited setting the "DenyUsers root" and "PermitRootLogin no" options. Another action to make the instance more secure is to place the instance in the private subnet. 
+Best way to protect the web app instance is to restrict any ssh connection to the instance. That is, all inbound traffic other than that of by the web app (port # 5000) should be restricted. Moreover, the outbound traffic other than that related to the web app (port # 5000) should be restricted.
 
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+Access to the secret recipes by the both instances can be prevented by speicfying Amazon Resource Name (ARN) of the free_recipe bucket instead of '*' in the instance role and removing the corresponding lines (line# 89 & 94) from the user data.
