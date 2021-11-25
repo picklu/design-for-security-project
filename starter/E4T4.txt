@@ -1,8 +1,11 @@
-
 # What additional architectural change can be made to reduce the internet facing attack surface of the web application instance.
+Additionally, the web application instance can be placed in the private subnet with an internet facing load balancer. 
 
 # Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+Creating VPC private endpoints for S3 would not prevent the unauthorized access to the secrets bucket if the IAM permissions for the s3 bucket were insecure since the instance profile role assumed a role that had complete access to the S3 buckets.
 
 # Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+Applying default encryption setting to the s3 buckets does not encrypt the data that already exists.
 
 # What would happen if the original cloud formation templates are applied to this environment.
+If the original cloud formation templates are applied to this environment then the web application instance will be vulnerable to ssh brute force attack and the S3 bucket for secret recipe will be accesible to both the instances.
