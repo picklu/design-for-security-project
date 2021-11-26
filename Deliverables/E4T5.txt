@@ -1,0 +1,3 @@
+# Additional hardening suggestions from Exercise 4
+
+Additionally, the web app instance can be run in private subnet. The configuration file c3-app_solution.yml, c3-s3_solution.yml, and c3-vpc_solution.yml have been created updating the corresponding original configuration fles accordingly.
