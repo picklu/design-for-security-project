@@ -21,7 +21,7 @@ Outputs:
     Export:
       Name: BucketNameRecipesFree
   BucketArnRecipesFree:
-    Value: !Get S3BucketRecipesFree.Arn
+    Value: !GetAtt S3BucketRecipesFree.Arn
     Description: Arn of the Amazon S3 bucket that you will upload free recipes to.
     Export:
       Name: BucketArnRecipesFree
@@ -31,7 +31,7 @@ Outputs:
     Export:
       Name: BucketNameRecipesSecret
   BucketArnRecipesSecret:
-    Value: !Get S3BucketRecipesSecret.Arn
+    Value: !GetAtt S3BucketRecipesSecret.Arn
     Description: Arn of the Amazon S3 bucket that you will upload secret recipes to.
     Export:
       Name: BucketArnRecipesSecret
