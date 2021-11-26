@@ -34,7 +34,7 @@ Resources:
               - Effect: Allow
                 Action: 
                   - 's3:GetObject*'
-                Resource: !join ["/", [!ImportValue BucketArnRecipesFree, "*"] ]
+                Resource: !Join [ "/", [ !ImportValue BucketArnRecipesFree, "*" ]]
 
   InstanceProfileRole:
     Type: AWS::IAM::InstanceProfile
@@ -99,11 +99,6 @@ Resources:
         CidrIp: 0.0.0.0/0
       VpcId: !ImportValue VpcId
 
-  AppEIP:
-    Type: AWS::EC2::EIP
-    Properties:
-      InstanceId: !Ref RecipeWebServiceInstance
-
   AppLoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
@@ -111,8 +106,8 @@ Resources:
       SecurityGroups:
       - !GetAtt AppLoadBalancerSG.GroupId
       Subnets:
-        - !ImportValue PublicSubnetTrusted
-        - !ImportValue PublicSubnetUnTrusted
+        - !ImportValue PrivateSubnet1
+        - !ImportValue PrivateSubnet2
 
   AppLoadBalancerListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
