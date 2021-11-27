@@ -1,13 +1,28 @@
 # Identify tools that will allow you to do the following:
 
 ## Scan infrastructure as code templates
+- cfripper
+- cfn-lint
+- Cloudsploit
 
 ### Example vulnerability
+- EC2SecurityGroupOpenToWorldRule
+- IAMRoleWildcardActionOnPolicyRule
 
 ##Scan AMI’s or containers for OS vulnerabilities
+- AWS Inspector
+- Amazon ECR with Clair
 
 ### Example vulnerability
+- Minimum length for passwords is not configured on EC2 instance.
+- EC2 instance is configured to support password authentication over SSH.
+
+
 
 ##Scan an AWS environment for cloud configuration vulnerabilities
+- Cfripper
+- cfn-lint
+- Cloudsploit
 
 ### Example vulnerability
+- EC2SecurityGroupMissingEgressRule
