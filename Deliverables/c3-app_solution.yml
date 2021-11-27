@@ -66,7 +66,7 @@ Resources:
       KeyName: !Ref KeyPair
       SecurityGroupIds:
       - !GetAtt WebAppSG.GroupId
-      SubnetId: !ImportValue PublicSubnetTrusted
+      SubnetId: !ImportValue PrivateSubnet1
       IamInstanceProfile: !Ref InstanceProfileRole
       Tags:
       - Key: "Name"
@@ -106,8 +106,8 @@ Resources:
       SecurityGroups:
       - !GetAtt AppLoadBalancerSG.GroupId
       Subnets:
-        - !ImportValue PrivateSubnet1
-        - !ImportValue PrivateSubnet2
+        - !ImportValue PublicSubnetTrusted
+        - !ImportValue PublicSubnetUnTrusted
 
   AppLoadBalancerListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
