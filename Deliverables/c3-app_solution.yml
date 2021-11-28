@@ -11,7 +11,6 @@ Parameters:
     Type: String
     Description: "Name of an existing KeyPair you will use to access the EC2 instances in this exercise. Be sure you have access to the private key file corresponding to this keypair."
 
-
 Resources:
   InstanceRole:
     Type: 'AWS::IAM::Role'
@@ -33,7 +32,7 @@ Resources:
             Statement:
               - Effect: Allow
                 Action: 
-                  - 's3:GetObject*'
+                  - 's3:GetObject'
                 Resource: !Join [ "/", [ !ImportValue BucketArnRecipesFree, "*" ]]
 
   InstanceProfileRole:
@@ -49,13 +48,15 @@ Resources:
       GroupName: WebAppSG
       GroupDescription: "Security group for this application server"
       SecurityGroupEgress:
-      - IpProtocol: -1
-        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 5000
+        ToPort: 5000
+        DestinationSecurityGroupId: !Ref AppLoadBalancerSG
       SecurityGroupIngress:
       - IpProtocol: tcp
         FromPort: 5000
         ToPort: 5000
-        CidrIp: 0.0.0.0/0
+        SourceSecurityGroupId: !Ref AppLoadBalancerSG
       VpcId: !ImportValue VpcId
 
   RecipeWebServiceInstance:
